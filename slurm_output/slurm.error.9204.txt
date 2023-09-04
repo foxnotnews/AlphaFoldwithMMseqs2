@@ -1,0 +1,414 @@
+I0821 13:48:57.996284 140012798003008 templates.py:857] Using precomputed obsolete pdbs /ibmm_data/alphafold_database/pdb_mmcif/obsolete.dat.
+I0821 13:48:59.503237 140012798003008 xla_bridge.py:353] Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+I0821 13:48:59.687420 140012798003008 xla_bridge.py:353] Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: Interpreter Host CUDA
+I0821 13:48:59.687893 140012798003008 xla_bridge.py:353] Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+I0821 13:48:59.688025 140012798003008 xla_bridge.py:353] Unable to initialize backend 'plugin': xla_extension has no attributes named get_plugin_device_client. Compile TensorFlow with //tensorflow/compiler/xla/python:enable_plugin_device set to true (defaults to false) to enable this.
+I0821 13:49:04.233029 140012798003008 run_alphafold.py:386] Have 10 models: ['model_1_multimer_v3_pred_0', 'model_1_multimer_v3_pred_1', 'model_2_multimer_v3_pred_0', 'model_2_multimer_v3_pred_1', 'model_3_multimer_v3_pred_0', 'model_3_multimer_v3_pred_1', 'model_4_multimer_v3_pred_0', 'model_4_multimer_v3_pred_1', 'model_5_multimer_v3_pred_0', 'model_5_multimer_v3_pred_1']
+I0821 13:49:04.233276 140012798003008 run_alphafold.py:403] Using random seed 806685736676318210 for the data pipeline
+I0821 13:49:04.233598 140012798003008 run_alphafold.py:161] Predicting file
+I0821 13:49:04.234622 140012798003008 pipeline_multimer.py:210] Running monomer pipeline on chain A: Kap6
+W0821 13:49:04.234775 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/A/uniref90_hits.sto
+W0821 13:49:04.234996 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/A/mgnify_hits.sto
+I0821 13:49:04.235584 140012798003008 hmmbuild.py:121] Launching subprocess ['/usr/bin/hmmbuild', '--hand', '--amino', '/tmp/tmpvtwhxy0j/output.hmm', '/tmp/tmpvtwhxy0j/query.msa']
+I0821 13:49:04.330305 140012798003008 utils.py:36] Started hmmbuild query
+I0821 13:49:04.423968 140012798003008 hmmbuild.py:128] hmmbuild stdout:
+# hmmbuild :: profile HMM construction from multiple sequence alignments
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# input alignment file:             /tmp/tmpvtwhxy0j/query.msa
+# output HMM file:                  /tmp/tmpvtwhxy0j/output.hmm
+# input alignment is asserted as:   protein
+# model architecture construction:  hand-specified by RF annotation
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# idx name                  nseq  alen  mlen eff_nseq re/pos description
+#---- -------------------- ----- ----- ----- -------- ------ -----------
+1     query                    1   193   193     0.42  0.591 
+
+# CPU time: 0.09u 0.01s 00:00:00.10 Elapsed: 00:00:00.09
+
+
+stderr:
+
+
+I0821 13:49:04.424097 140012798003008 utils.py:40] Finished hmmbuild query in 0.093 seconds
+I0821 13:49:04.424872 140012798003008 hmmsearch.py:103] Launching sub-process ['/usr/bin/hmmsearch', '--noali', '--cpu', '8', '--F1', '0.1', '--F2', '0.1', '--F3', '0.1', '--incE', '100', '-E', '100', '--domE', '100', '--incdomE', '100', '-A', '/tmp/tmpc970gerb/output.sto', '/tmp/tmpc970gerb/query.hmm', '/ibmm_data/alphafold_database/pdb_seqres/pdb_seqres_fixed.txt']
+I0821 13:49:04.517668 140012798003008 utils.py:36] Started hmmsearch (pdb_seqres_fixed.txt) query
+I0821 13:49:22.271394 140012798003008 utils.py:40] Finished hmmsearch (pdb_seqres_fixed.txt) query in 17.753 seconds
+W0821 13:49:22.277943 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/A/bfd_uniref_hits.a3m
+I0821 13:49:22.281489 140012798003008 templates.py:940] Searching for template for: FMMDQKNNPALKGCAISKRGKLLSKMYKELSQNQRRELNMRAARHPNLGKRSKTEITDEKRSSRRKSKGTFATFVKNNYASVRGLNYRKRFAALSKLYNLSRPIQMEEVIKSMPKGHSLAALPGGKGSASVKAKEKEVVIAKAVQDASEMLRAAQKEGGKSDTSEKKPTRKGRGAPKKEEKPTQKEKKVTKKK
+I0821 13:52:55.911617 140012798003008 pipeline.py:234] Uniref90 MSA size: 1 sequences.
+I0821 13:52:55.911772 140012798003008 pipeline.py:235] BFD MSA size: 129 sequences.
+I0821 13:52:55.911825 140012798003008 pipeline.py:236] MGnify MSA size: 1 sequences.
+I0821 13:52:55.911877 140012798003008 pipeline.py:237] Final (deduplicated) MSA size: 59 sequences.
+I0821 13:52:55.912096 140012798003008 pipeline.py:239] Total number of templates (NB: this can include bad templates and is later filtered to top 4): 1.
+W0821 13:52:55.912353 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/A/uniprot_hits.sto
+I0821 13:52:55.913183 140012798003008 pipeline_multimer.py:210] Running monomer pipeline on chain B: 1850
+W0821 13:52:55.913296 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/B/uniref90_hits.sto
+W0821 13:52:55.913495 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/B/mgnify_hits.sto
+I0821 13:52:55.914184 140012798003008 hmmbuild.py:121] Launching subprocess ['/usr/bin/hmmbuild', '--hand', '--amino', '/tmp/tmp5g_7risz/output.hmm', '/tmp/tmp5g_7risz/query.msa']
+I0821 13:52:56.117085 140012798003008 utils.py:36] Started hmmbuild query
+I0821 13:52:56.331110 140012798003008 hmmbuild.py:128] hmmbuild stdout:
+# hmmbuild :: profile HMM construction from multiple sequence alignments
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# input alignment file:             /tmp/tmp5g_7risz/query.msa
+# output HMM file:                  /tmp/tmp5g_7risz/output.hmm
+# input alignment is asserted as:   protein
+# model architecture construction:  hand-specified by RF annotation
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# idx name                  nseq  alen  mlen eff_nseq re/pos description
+#---- -------------------- ----- ----- ----- -------- ------ -----------
+1     query                    1   471   471     0.39  0.595 
+
+# CPU time: 0.20u 0.00s 00:00:00.20 Elapsed: 00:00:00.22
+
+
+stderr:
+
+
+I0821 13:52:56.331241 140012798003008 utils.py:40] Finished hmmbuild query in 0.214 seconds
+I0821 13:52:56.332102 140012798003008 hmmsearch.py:103] Launching sub-process ['/usr/bin/hmmsearch', '--noali', '--cpu', '8', '--F1', '0.1', '--F2', '0.1', '--F3', '0.1', '--incE', '100', '-E', '100', '--domE', '100', '--incdomE', '100', '-A', '/tmp/tmpy70e8kg5/output.sto', '/tmp/tmpy70e8kg5/query.hmm', '/ibmm_data/alphafold_database/pdb_seqres/pdb_seqres_fixed.txt']
+I0821 13:52:56.534352 140012798003008 utils.py:36] Started hmmsearch (pdb_seqres_fixed.txt) query
+I0821 13:53:36.928418 140012798003008 utils.py:40] Finished hmmsearch (pdb_seqres_fixed.txt) query in 40.394 seconds
+W0821 13:53:36.980365 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/B/bfd_uniref_hits.a3m
+I0821 13:53:36.984795 140012798003008 templates.py:940] Searching for template for: DSTPVERQFQKPEFTAKGINKRLDDVNTEPLMYVETSKDASSTELTDHTAPRWYLNTYMEMVDNQRTDQVIITGNLPLSWERDKFEPYALVRGRIDDEDLKWVLAPEQRSKGVDALVEFTKLEKSTLQDVLDTVELPRTQYRNYKGKLHKSIDDANTHLAARKQQIEKARETEILRKIGYSEEEIMKEEQYLTNRTRGVKTLDELGASLRERKRKERAATVNEMEDLLEERRVQQLEAGEAVFTDEELVERPEELCLKPKPYGTRKQVYRHIYAADIGKDGVNQVKFQWWLDRTRRIKRAVDTIHGVPVYNERLSANEEQTRKQMREAAEFNFSLSRAQGAKGFTDPRGHYEQFTSVLRDNKGLNDDSRVEVHEDGVLENDIYRFPHTAGHGPKPPPKRFSDKGEGTERVCVDIHKLHDDDDARESLKRGVRAAREVFRQHVTGVVKPEESGERATDKQPPPSCEDPPKSG
+I0821 13:53:58.362577 140012798003008 templates.py:718] hit 6pxg_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08067940552016985.
+I0821 13:53:58.362750 140012798003008 templates.py:718] hit 6pxg_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08067940552016985.
+I0821 13:53:58.362828 140012798003008 templates.py:718] hit 6pxg_F did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08067940552016985.
+I0821 13:53:58.362911 140012798003008 templates.py:718] hit 6pxg_L did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08067940552016985.
+I0821 13:53:58.363001 140012798003008 templates.py:718] hit 6pxh_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08067940552016985.
+I0821 13:53:58.363081 140012798003008 templates.py:718] hit 6pxh_L did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08067940552016985.
+I0821 13:53:58.363162 140012798003008 templates.py:718] hit 6pz8_G did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08067940552016985.
+I0821 13:53:58.363238 140012798003008 templates.py:718] hit 6pz8_K did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08067940552016985.
+I0821 13:53:58.363313 140012798003008 templates.py:718] hit 6pz8_L did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08067940552016985.
+I0821 13:54:44.472318 140012798003008 templates.py:718] hit 2q5w_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.0870488322717622.
+I0821 13:54:44.472537 140012798003008 templates.py:718] hit 2qie_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.0870488322717622.
+I0821 13:54:44.472618 140012798003008 templates.py:718] hit 2qie_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.0870488322717622.
+I0821 13:54:44.472706 140012798003008 templates.py:718] hit 2qie_G did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.0870488322717622.
+I0821 13:54:44.472790 140012798003008 templates.py:718] hit 2qie_J did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.0870488322717622.
+I0821 13:54:48.218192 140012798003008 templates.py:718] hit 6ez3_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.059447983014861996.
+I0821 13:54:48.218342 140012798003008 templates.py:718] hit 6ez3_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:54:48.218421 140012798003008 templates.py:718] hit 6ez3_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.059447983014861996.
+I0821 13:54:48.218513 140012798003008 templates.py:718] hit 6ez3_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:54:48.218591 140012798003008 templates.py:718] hit 6ez3_C did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.059447983014861996.
+I0821 13:54:48.218667 140012798003008 templates.py:718] hit 6ez3_C did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:54:48.218741 140012798003008 templates.py:718] hit 6ez3_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.059447983014861996.
+I0821 13:54:48.218814 140012798003008 templates.py:718] hit 6ez3_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:54:48.218888 140012798003008 templates.py:718] hit 6ez3_E did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.059447983014861996.
+I0821 13:54:48.218961 140012798003008 templates.py:718] hit 6ez3_E did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:54:48.219035 140012798003008 templates.py:718] hit 6ez3_F did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.059447983014861996.
+I0821 13:54:48.219109 140012798003008 templates.py:718] hit 6ez3_F did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:54:49.039813 140012798003008 templates.py:718] hit 2py6_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09766454352441614.
+I0821 13:54:49.039989 140012798003008 templates.py:718] hit 5j1f_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08917197452229299.
+I0821 13:54:49.040066 140012798003008 templates.py:718] hit 5j1f_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08917197452229299.
+I0821 13:54:49.040159 140012798003008 templates.py:718] hit 5j1h_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08917197452229299.
+I0821 13:54:49.040242 140012798003008 templates.py:718] hit 5j1h_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08917197452229299.
+I0821 13:54:53.214126 140012798003008 templates.py:718] hit 3zmf_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:54:53.214324 140012798003008 templates.py:718] hit 3zmf_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.059447983014861996.
+I0821 13:54:53.214404 140012798003008 templates.py:718] hit 3zmf_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:54:53.214494 140012798003008 templates.py:718] hit 3zmf_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.059447983014861996.
+I0821 13:54:53.214582 140012798003008 templates.py:718] hit 3zmf_C did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:54:53.214649 140012798003008 templates.py:718] hit 3zmf_C did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.059447983014861996.
+I0821 13:55:51.814952 140012798003008 templates.py:718] hit 3pe0_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:55:51.815130 140012798003008 templates.py:718] hit 3pe0_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:55:52.241111 140012798003008 templates.py:718] hit 6kgx_A2 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.241276 140012798003008 templates.py:718] hit 6kgx_A6 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.241351 140012798003008 templates.py:718] hit 6kgx_A7 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.241430 140012798003008 templates.py:718] hit 6kgx_A9 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.241528 140012798003008 templates.py:718] hit 6kgx_AB did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.241620 140012798003008 templates.py:718] hit 6kgx_AF did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.241698 140012798003008 templates.py:718] hit 6kgx_AI did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.241773 140012798003008 templates.py:718] hit 6kgx_AJ did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.241845 140012798003008 templates.py:718] hit 6kgx_Y3 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.241916 140012798003008 templates.py:718] hit 6kgx_YD did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.241988 140012798003008 templates.py:718] hit 7ezx_A1 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242055 140012798003008 templates.py:718] hit 7ezx_A7 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242124 140012798003008 templates.py:718] hit 7ezx_A9 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242193 140012798003008 templates.py:718] hit 7ezx_AF did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242262 140012798003008 templates.py:718] hit 7ezx_AI did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242331 140012798003008 templates.py:718] hit 7ezx_AK did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242400 140012798003008 templates.py:718] hit 7y4l_A2 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242469 140012798003008 templates.py:718] hit 7y4l_A5 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242547 140012798003008 templates.py:718] hit 7y4l_A6 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242617 140012798003008 templates.py:718] hit 7y4l_AB did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242687 140012798003008 templates.py:718] hit 7y4l_AC did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242756 140012798003008 templates.py:718] hit 7y4l_AD did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242823 140012798003008 templates.py:718] hit 7y4l_AE did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242890 140012798003008 templates.py:718] hit 7y4l_AJ did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.242957 140012798003008 templates.py:718] hit 7y4l_Y1 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243024 140012798003008 templates.py:718] hit 7y4l_YK did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243092 140012798003008 templates.py:718] hit 7y5e_A1 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243160 140012798003008 templates.py:718] hit 7y5e_A4 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243226 140012798003008 templates.py:718] hit 7y5e_AD did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243295 140012798003008 templates.py:718] hit 7y5e_AE did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243363 140012798003008 templates.py:718] hit 7y5e_AG did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243430 140012798003008 templates.py:718] hit 7y5e_AH did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243506 140012798003008 templates.py:718] hit 7y5e_AO did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243578 140012798003008 templates.py:718] hit 7y5e_AQ did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243646 140012798003008 templates.py:718] hit 7y5e_Y7 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243714 140012798003008 templates.py:718] hit 7y5e_YA did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243782 140012798003008 templates.py:718] hit 7y7a_A1 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243851 140012798003008 templates.py:718] hit 7y7a_A2 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243920 140012798003008 templates.py:718] hit 7y7a_A4 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.243989 140012798003008 templates.py:718] hit 7y7a_A8 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244058 140012798003008 templates.py:718] hit 7y7a_AF did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244125 140012798003008 templates.py:718] hit 7y7a_AI did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244191 140012798003008 templates.py:718] hit 7y7a_AK did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244257 140012798003008 templates.py:718] hit 7y7a_AM did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244325 140012798003008 templates.py:718] hit 7y7a_AP did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244392 140012798003008 templates.py:718] hit 7y7a_AR did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244460 140012798003008 templates.py:718] hit 7y7a_AS did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244535 140012798003008 templates.py:718] hit 7y7a_Ac did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244606 140012798003008 templates.py:718] hit 7y7a_Ae did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244673 140012798003008 templates.py:718] hit 7y7a_Aj did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244740 140012798003008 templates.py:718] hit 7y7a_Al did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244807 140012798003008 templates.py:718] hit 7y7a_An did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244874 140012798003008 templates.py:718] hit 7y7a_Y5 did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.244943 140012798003008 templates.py:718] hit 7y7a_YD did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.245010 140012798003008 templates.py:718] hit 7y7a_Yg did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:52.245079 140012798003008 templates.py:718] hit 7y7a_Yi did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.09129511677282377.
+I0821 13:55:57.149274 140012798003008 templates.py:718] hit 7owe_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.149448 140012798003008 templates.py:718] hit 7owe_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.149531 140012798003008 templates.py:718] hit 7owe_C did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.149615 140012798003008 templates.py:718] hit 7owe_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.149698 140012798003008 templates.py:718] hit 7owe_E did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.149774 140012798003008 templates.py:718] hit 7owe_F did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.149853 140012798003008 templates.py:718] hit 7owh_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.149927 140012798003008 templates.py:718] hit 7owh_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.149999 140012798003008 templates.py:718] hit 7owh_C did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150071 140012798003008 templates.py:718] hit 7owh_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150142 140012798003008 templates.py:718] hit 7owh_E did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150214 140012798003008 templates.py:718] hit 7owh_F did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150287 140012798003008 templates.py:718] hit 7owj_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150359 140012798003008 templates.py:718] hit 7owj_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150429 140012798003008 templates.py:718] hit 7owj_C did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150505 140012798003008 templates.py:718] hit 7owj_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150576 140012798003008 templates.py:718] hit 7owj_E did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150646 140012798003008 templates.py:718] hit 7owj_F did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150715 140012798003008 templates.py:718] hit 7owk_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150787 140012798003008 templates.py:718] hit 7owk_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150861 140012798003008 templates.py:718] hit 7owk_C did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.150932 140012798003008 templates.py:718] hit 7owk_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.151001 140012798003008 templates.py:718] hit 7owk_E did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.151072 140012798003008 templates.py:718] hit 7owk_F did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.151145 140012798003008 templates.py:718] hit 7owl_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.151215 140012798003008 templates.py:718] hit 7owl_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.151286 140012798003008 templates.py:718] hit 7owl_C did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.151355 140012798003008 templates.py:718] hit 7owl_D did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.151425 140012798003008 templates.py:718] hit 7owl_E did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.151494 140012798003008 templates.py:718] hit 7owl_F did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07643312101910828.
+I0821 13:55:57.151571 140012798003008 templates.py:718] hit 4v8p_BE did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:55:57.151641 140012798003008 templates.py:718] hit 4v8p_CE did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:55:57.151710 140012798003008 templates.py:718] hit 4v8p_EE did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:55:57.151780 140012798003008 templates.py:718] hit 4v8p_GE did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:55:57.151849 140012798003008 templates.py:718] hit 1jb4_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:55:57.151918 140012798003008 templates.py:718] hit 1jb4_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:55:57.151988 140012798003008 templates.py:718] hit 1jb2_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:55:57.152056 140012798003008 templates.py:718] hit 1jb2_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:55:57.152126 140012798003008 templates.py:718] hit 1jb5_A did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:55:57.152198 140012798003008 templates.py:718] hit 1jb5_B did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.08280254777070063.
+I0821 13:55:57.152269 140012798003008 templates.py:718] hit 5mrc_II did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:55:57.152340 140012798003008 templates.py:718] hit 5mre_II did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:55:57.152410 140012798003008 templates.py:718] hit 5mrf_II did not pass prefilter: Proportion of residues aligned to query too small. Align ratio: 0.07430997876857749.
+I0821 13:55:57.156161 140012798003008 pipeline.py:234] Uniref90 MSA size: 1 sequences.
+I0821 13:55:57.156227 140012798003008 pipeline.py:235] BFD MSA size: 72 sequences.
+I0821 13:55:57.156284 140012798003008 pipeline.py:236] MGnify MSA size: 1 sequences.
+I0821 13:55:57.156335 140012798003008 pipeline.py:237] Final (deduplicated) MSA size: 41 sequences.
+I0821 13:55:57.156393 140012798003008 pipeline.py:239] Total number of templates (NB: this can include bad templates and is later filtered to top 4): 1.
+W0821 13:55:57.157323 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/B/uniprot_hits.sto
+I0821 13:55:57.158330 140012798003008 pipeline_multimer.py:210] Running monomer pipeline on chain C: 2190
+W0821 13:55:57.158442 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/C/uniref90_hits.sto
+W0821 13:55:57.158649 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/C/mgnify_hits.sto
+I0821 13:55:57.159184 140012798003008 hmmbuild.py:121] Launching subprocess ['/usr/bin/hmmbuild', '--hand', '--amino', '/tmp/tmprsbac36y/output.hmm', '/tmp/tmprsbac36y/query.msa']
+I0821 13:55:57.353949 140012798003008 utils.py:36] Started hmmbuild query
+I0821 13:55:57.482017 140012798003008 hmmbuild.py:128] hmmbuild stdout:
+# hmmbuild :: profile HMM construction from multiple sequence alignments
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# input alignment file:             /tmp/tmprsbac36y/query.msa
+# output HMM file:                  /tmp/tmprsbac36y/output.hmm
+# input alignment is asserted as:   protein
+# model architecture construction:  hand-specified by RF annotation
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# idx name                  nseq  alen  mlen eff_nseq re/pos description
+#---- -------------------- ----- ----- ----- -------- ------ -----------
+1     query                    1   268   268     0.39  0.588 
+
+# CPU time: 0.11u 0.01s 00:00:00.12 Elapsed: 00:00:00.13
+
+
+stderr:
+
+
+I0821 13:55:57.482191 140012798003008 utils.py:40] Finished hmmbuild query in 0.128 seconds
+I0821 13:55:57.483081 140012798003008 hmmsearch.py:103] Launching sub-process ['/usr/bin/hmmsearch', '--noali', '--cpu', '8', '--F1', '0.1', '--F2', '0.1', '--F3', '0.1', '--incE', '100', '-E', '100', '--domE', '100', '--incdomE', '100', '-A', '/tmp/tmpejimjbij/output.sto', '/tmp/tmpejimjbij/query.hmm', '/ibmm_data/alphafold_database/pdb_seqres/pdb_seqres_fixed.txt']
+I0821 13:55:57.676091 140012798003008 utils.py:36] Started hmmsearch (pdb_seqres_fixed.txt) query
+I0821 13:56:27.321453 140012798003008 utils.py:40] Finished hmmsearch (pdb_seqres_fixed.txt) query in 29.645 seconds
+W0821 13:56:27.340683 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/C/bfd_uniref_hits.a3m
+I0821 13:56:27.343255 140012798003008 templates.py:940] Searching for template for: GSVLEEIFAELAACDVAQRSAQPTPQVDFARREKCRGDFNSGAGKCNAVTSPGRSPESEDRDIRAETSKQKHLQRQLQEVWDRVAMAKVEEEKEEGVRRRSRYVVSPPAILHHSTAELVQENSPQHFVPAEDSSGKLSALPHVESPGSVAVVTLVGRVLSAVGSHGSSETSRDDRDLLTDEDELHARFLVEYNVPFRTLKPVVVQVRCYGATLLSFAERYVKKGDVVHVLGHVLPLEVRSPEDPVLCVCALPFGGNVSVVLGTECVAE
+I0821 13:58:12.875201 140012798003008 pipeline.py:234] Uniref90 MSA size: 1 sequences.
+I0821 13:58:12.875394 140012798003008 pipeline.py:235] BFD MSA size: 63 sequences.
+I0821 13:58:12.875476 140012798003008 pipeline.py:236] MGnify MSA size: 1 sequences.
+I0821 13:58:12.875549 140012798003008 pipeline.py:237] Final (deduplicated) MSA size: 34 sequences.
+I0821 13:58:12.875616 140012798003008 pipeline.py:239] Total number of templates (NB: this can include bad templates and is later filtered to top 4): 1.
+W0821 13:58:12.876235 140012798003008 pipeline.py:100] Reading MSA from file /home/alphafold_user/Alphafold-Website/output/9204/file/msas/C/uniprot_hits.sto
+I0821 13:58:12.896287 140012798003008 run_alphafold.py:191] Running model model_1_multimer_v3_pred_0 on file
+I0821 13:58:12.896918 140012798003008 model.py:165] Running predict with shape(feat) = {'aatype': (932,), 'residue_index': (932,), 'seq_length': (), 'msa': (512, 932), 'num_alignments': (), 'template_aatype': (4, 932), 'template_all_atom_mask': (4, 932, 37), 'template_all_atom_positions': (4, 932, 37, 3), 'asym_id': (932,), 'sym_id': (932,), 'entity_id': (932,), 'deletion_matrix': (512, 932), 'deletion_mean': (932,), 'all_atom_mask': (932, 37), 'all_atom_positions': (932, 37, 3), 'assembly_num_chains': (), 'entity_mask': (932,), 'num_templates': (), 'cluster_bias_mask': (512,), 'bert_mask': (512, 932), 'seq_mask': (932,), 'msa_mask': (512, 932)}
+I0821 14:08:49.882741 140012798003008 model.py:175] Output shape was {'distogram': {'bin_edges': (63,), 'logits': (932, 932, 64)}, 'experimentally_resolved': {'logits': (932, 37)}, 'masked_msa': {'logits': (508, 932, 22)}, 'num_recycles': (), 'predicted_aligned_error': (932, 932), 'predicted_lddt': {'logits': (932, 50)}, 'structure_module': {'final_atom_mask': (932, 37), 'final_atom_positions': (932, 37, 3)}, 'plddt': (932,), 'aligned_confidence_probs': (932, 932, 64), 'max_predicted_aligned_error': (), 'ptm': (), 'iptm': (), 'ranking_confidence': ()}
+I0821 14:08:49.883058 140012798003008 run_alphafold.py:203] Total JAX model model_1_multimer_v3_pred_0 on file predict time (includes compilation time, see --benchmark): 637.0s
+I0821 14:09:41.136986 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 192 (LYS) of chain 0>: ['OXT'], <Residue 663 (GLY) of chain 1>: ['OXT'], <Residue 931 (GLU) of chain 2>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:09:42.840837 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:09:44.789621 140012798003008 amber_minimize.py:69] Restraining 7411 / 14832 particles.
+I0821 14:10:41.765820 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:10:55.881022 140012798003008 amber_minimize.py:500] Iteration completed: Einit 476323730355.64 Efinal -6889.34 Time 44.36 s num residue violations 5 num residue exclusions 0 
+I0821 14:10:55.890826 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:10:57.855946 140012798003008 amber_minimize.py:69] Restraining 7369 / 14832 particles.
+I0821 14:11:13.418172 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:11:26.155939 140012798003008 amber_minimize.py:500] Iteration completed: Einit 27529.29 Efinal -15455.35 Time 3.55 s num residue violations 3 num residue exclusions 5 
+I0821 14:11:26.156380 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:11:28.185978 140012798003008 amber_minimize.py:69] Restraining 7369 / 14832 particles.
+I0821 14:11:44.969590 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:11:56.883741 140012798003008 amber_minimize.py:500] Iteration completed: Einit 20645.51 Efinal -17445.30 Time 3.56 s num residue violations 3 num residue exclusions 5 
+I0821 14:11:57.319301 140012798003008 run_alphafold.py:191] Running model model_1_multimer_v3_pred_1 on file
+I0821 14:11:57.319630 140012798003008 model.py:165] Running predict with shape(feat) = {'aatype': (932,), 'residue_index': (932,), 'seq_length': (), 'msa': (512, 932), 'num_alignments': (), 'template_aatype': (4, 932), 'template_all_atom_mask': (4, 932, 37), 'template_all_atom_positions': (4, 932, 37, 3), 'asym_id': (932,), 'sym_id': (932,), 'entity_id': (932,), 'deletion_matrix': (512, 932), 'deletion_mean': (932,), 'all_atom_mask': (932, 37), 'all_atom_positions': (932, 37, 3), 'assembly_num_chains': (), 'entity_mask': (932,), 'num_templates': (), 'cluster_bias_mask': (512,), 'bert_mask': (512, 932), 'seq_mask': (932,), 'msa_mask': (512, 932)}
+I0821 14:20:13.674503 140012798003008 model.py:175] Output shape was {'distogram': {'bin_edges': (63,), 'logits': (932, 932, 64)}, 'experimentally_resolved': {'logits': (932, 37)}, 'masked_msa': {'logits': (508, 932, 22)}, 'num_recycles': (), 'predicted_aligned_error': (932, 932), 'predicted_lddt': {'logits': (932, 50)}, 'structure_module': {'final_atom_mask': (932, 37), 'final_atom_positions': (932, 37, 3)}, 'plddt': (932,), 'aligned_confidence_probs': (932, 932, 64), 'max_predicted_aligned_error': (), 'ptm': (), 'iptm': (), 'ranking_confidence': ()}
+I0821 14:20:13.687988 140012798003008 run_alphafold.py:203] Total JAX model model_1_multimer_v3_pred_1 on file predict time (includes compilation time, see --benchmark): 496.4s
+I0821 14:21:01.109978 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 192 (LYS) of chain 0>: ['OXT'], <Residue 663 (GLY) of chain 1>: ['OXT'], <Residue 931 (GLU) of chain 2>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:21:02.834006 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:21:04.875300 140012798003008 amber_minimize.py:69] Restraining 7411 / 14832 particles.
+I0821 14:26:09.213411 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:26:21.892557 140012798003008 amber_minimize.py:500] Iteration completed: Einit 381810731074.57 Efinal 481338111510.52 Time 290.80 s num residue violations 214 num residue exclusions 0 
+I0821 14:26:21.892843 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:26:23.805808 140012798003008 amber_minimize.py:69] Restraining 5626 / 14832 particles.
+I0821 14:27:18.341153 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:27:30.341074 140012798003008 amber_minimize.py:500] Iteration completed: Einit 478838971961.76 Efinal -13629.46 Time 41.84 s num residue violations 5 num residue exclusions 214 
+I0821 14:27:30.341381 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:27:32.784946 140012798003008 amber_minimize.py:69] Restraining 5586 / 14832 particles.
+I0821 14:27:49.077860 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:28:01.063733 140012798003008 amber_minimize.py:500] Iteration completed: Einit 35130.77 Efinal -17716.67 Time 4.27 s num residue violations 2 num residue exclusions 219 
+I0821 14:28:01.493361 140012798003008 run_alphafold.py:191] Running model model_2_multimer_v3_pred_0 on file
+I0821 14:28:01.493656 140012798003008 model.py:165] Running predict with shape(feat) = {'aatype': (932,), 'residue_index': (932,), 'seq_length': (), 'msa': (512, 932), 'num_alignments': (), 'template_aatype': (4, 932), 'template_all_atom_mask': (4, 932, 37), 'template_all_atom_positions': (4, 932, 37, 3), 'asym_id': (932,), 'sym_id': (932,), 'entity_id': (932,), 'deletion_matrix': (512, 932), 'deletion_mean': (932,), 'all_atom_mask': (932, 37), 'all_atom_positions': (932, 37, 3), 'assembly_num_chains': (), 'entity_mask': (932,), 'num_templates': (), 'cluster_bias_mask': (512,), 'bert_mask': (512, 932), 'seq_mask': (932,), 'msa_mask': (512, 932)}
+I0821 14:38:32.814659 140012798003008 model.py:175] Output shape was {'distogram': {'bin_edges': (63,), 'logits': (932, 932, 64)}, 'experimentally_resolved': {'logits': (932, 37)}, 'masked_msa': {'logits': (508, 932, 22)}, 'num_recycles': (), 'predicted_aligned_error': (932, 932), 'predicted_lddt': {'logits': (932, 50)}, 'structure_module': {'final_atom_mask': (932, 37), 'final_atom_positions': (932, 37, 3)}, 'plddt': (932,), 'aligned_confidence_probs': (932, 932, 64), 'max_predicted_aligned_error': (), 'ptm': (), 'iptm': (), 'ranking_confidence': ()}
+I0821 14:38:32.818937 140012798003008 run_alphafold.py:203] Total JAX model model_2_multimer_v3_pred_0 on file predict time (includes compilation time, see --benchmark): 631.3s
+I0821 14:39:20.599104 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 192 (LYS) of chain 0>: ['OXT'], <Residue 663 (GLY) of chain 1>: ['OXT'], <Residue 931 (GLU) of chain 2>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:39:22.895013 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:39:24.916054 140012798003008 amber_minimize.py:69] Restraining 7411 / 14832 particles.
+I0821 14:40:12.397639 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:40:24.562523 140012798003008 amber_minimize.py:500] Iteration completed: Einit 299407199449.33 Efinal -2584.18 Time 35.31 s num residue violations 18 num residue exclusions 0 
+I0821 14:40:24.562846 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:40:26.541068 140012798003008 amber_minimize.py:69] Restraining 7266 / 14832 particles.
+I0821 14:40:43.169073 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:40:55.530888 140012798003008 amber_minimize.py:500] Iteration completed: Einit 31839.83 Efinal -12519.16 Time 4.53 s num residue violations 12 num residue exclusions 18 
+I0821 14:40:55.531331 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:40:57.612196 140012798003008 amber_minimize.py:69] Restraining 7244 / 14832 particles.
+I0821 14:41:13.268957 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:41:26.164527 140012798003008 amber_minimize.py:500] Iteration completed: Einit 22989.29 Efinal -14784.96 Time 3.73 s num residue violations 9 num residue exclusions 20 
+I0821 14:41:26.615871 140012798003008 run_alphafold.py:191] Running model model_2_multimer_v3_pred_1 on file
+I0821 14:41:26.616199 140012798003008 model.py:165] Running predict with shape(feat) = {'aatype': (932,), 'residue_index': (932,), 'seq_length': (), 'msa': (512, 932), 'num_alignments': (), 'template_aatype': (4, 932), 'template_all_atom_mask': (4, 932, 37), 'template_all_atom_positions': (4, 932, 37, 3), 'asym_id': (932,), 'sym_id': (932,), 'entity_id': (932,), 'deletion_matrix': (512, 932), 'deletion_mean': (932,), 'all_atom_mask': (932, 37), 'all_atom_positions': (932, 37, 3), 'assembly_num_chains': (), 'entity_mask': (932,), 'num_templates': (), 'cluster_bias_mask': (512,), 'bert_mask': (512, 932), 'seq_mask': (932,), 'msa_mask': (512, 932)}
+I0821 14:49:42.799363 140012798003008 model.py:175] Output shape was {'distogram': {'bin_edges': (63,), 'logits': (932, 932, 64)}, 'experimentally_resolved': {'logits': (932, 37)}, 'masked_msa': {'logits': (508, 932, 22)}, 'num_recycles': (), 'predicted_aligned_error': (932, 932), 'predicted_lddt': {'logits': (932, 50)}, 'structure_module': {'final_atom_mask': (932, 37), 'final_atom_positions': (932, 37, 3)}, 'plddt': (932,), 'aligned_confidence_probs': (932, 932, 64), 'max_predicted_aligned_error': (), 'ptm': (), 'iptm': (), 'ranking_confidence': ()}
+I0821 14:49:42.800613 140012798003008 run_alphafold.py:203] Total JAX model model_2_multimer_v3_pred_1 on file predict time (includes compilation time, see --benchmark): 496.2s
+I0821 14:50:29.283710 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 192 (LYS) of chain 0>: ['OXT'], <Residue 663 (GLY) of chain 1>: ['OXT'], <Residue 931 (GLU) of chain 2>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:50:30.933953 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:50:33.444096 140012798003008 amber_minimize.py:69] Restraining 7411 / 14832 particles.
+I0821 14:51:52.685070 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:52:04.955306 140012798003008 amber_minimize.py:500] Iteration completed: Einit 9441749215204.59 Efinal -5426.77 Time 66.79 s num residue violations 5 num residue exclusions 0 
+I0821 14:52:04.955639 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:52:07.058795 140012798003008 amber_minimize.py:69] Restraining 7372 / 14832 particles.
+I0821 14:52:23.318204 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:52:35.907520 140012798003008 amber_minimize.py:500] Iteration completed: Einit 34339.64 Efinal -14835.98 Time 3.76 s num residue violations 4 num residue exclusions 5 
+I0821 14:52:35.907963 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 14:52:38.004678 140012798003008 amber_minimize.py:69] Restraining 7350 / 14832 particles.
+I0821 14:52:53.559082 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 14:53:05.701126 140012798003008 amber_minimize.py:500] Iteration completed: Einit 38756.43 Efinal -17097.20 Time 3.71 s num residue violations 0 num residue exclusions 7 
+I0821 14:53:06.735833 140012798003008 run_alphafold.py:191] Running model model_3_multimer_v3_pred_0 on file
+I0821 14:53:06.736093 140012798003008 model.py:165] Running predict with shape(feat) = {'aatype': (932,), 'residue_index': (932,), 'seq_length': (), 'msa': (512, 932), 'num_alignments': (), 'template_aatype': (4, 932), 'template_all_atom_mask': (4, 932, 37), 'template_all_atom_positions': (4, 932, 37, 3), 'asym_id': (932,), 'sym_id': (932,), 'entity_id': (932,), 'deletion_matrix': (512, 932), 'deletion_mean': (932,), 'all_atom_mask': (932, 37), 'all_atom_positions': (932, 37, 3), 'assembly_num_chains': (), 'entity_mask': (932,), 'num_templates': (), 'cluster_bias_mask': (512,), 'bert_mask': (512, 932), 'seq_mask': (932,), 'msa_mask': (512, 932)}
+I0821 15:03:38.793767 140012798003008 model.py:175] Output shape was {'distogram': {'bin_edges': (63,), 'logits': (932, 932, 64)}, 'experimentally_resolved': {'logits': (932, 37)}, 'masked_msa': {'logits': (508, 932, 22)}, 'num_recycles': (), 'predicted_aligned_error': (932, 932), 'predicted_lddt': {'logits': (932, 50)}, 'structure_module': {'final_atom_mask': (932, 37), 'final_atom_positions': (932, 37, 3)}, 'plddt': (932,), 'aligned_confidence_probs': (932, 932, 64), 'max_predicted_aligned_error': (), 'ptm': (), 'iptm': (), 'ranking_confidence': ()}
+I0821 15:03:38.796592 140012798003008 run_alphafold.py:203] Total JAX model model_3_multimer_v3_pred_0 on file predict time (includes compilation time, see --benchmark): 632.1s
+I0821 15:04:25.587470 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 192 (LYS) of chain 0>: ['OXT'], <Residue 663 (GLY) of chain 1>: ['OXT'], <Residue 931 (GLU) of chain 2>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:04:27.299308 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 15:04:29.386262 140012798003008 amber_minimize.py:69] Restraining 7411 / 14832 particles.
+I0821 15:05:14.136897 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:05:27.328918 140012798003008 amber_minimize.py:500] Iteration completed: Einit 189644846990.44 Efinal -7853.68 Time 31.73 s num residue violations 7 num residue exclusions 0 
+I0821 15:05:27.329380 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 15:05:29.443965 140012798003008 amber_minimize.py:69] Restraining 7349 / 14832 particles.
+I0821 15:05:45.720658 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:05:57.797051 140012798003008 amber_minimize.py:500] Iteration completed: Einit 44752.52 Efinal -14483.34 Time 3.74 s num residue violations 4 num residue exclusions 7 
+I0821 15:05:57.797480 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 15:05:59.842569 140012798003008 amber_minimize.py:69] Restraining 7331 / 14832 particles.
+I0821 15:06:15.642256 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:06:28.431586 140012798003008 amber_minimize.py:500] Iteration completed: Einit 34160.15 Efinal -16309.07 Time 4.33 s num residue violations 4 num residue exclusions 9 
+I0821 15:06:28.882897 140012798003008 run_alphafold.py:191] Running model model_3_multimer_v3_pred_1 on file
+I0821 15:06:28.883215 140012798003008 model.py:165] Running predict with shape(feat) = {'aatype': (932,), 'residue_index': (932,), 'seq_length': (), 'msa': (512, 932), 'num_alignments': (), 'template_aatype': (4, 932), 'template_all_atom_mask': (4, 932, 37), 'template_all_atom_positions': (4, 932, 37, 3), 'asym_id': (932,), 'sym_id': (932,), 'entity_id': (932,), 'deletion_matrix': (512, 932), 'deletion_mean': (932,), 'all_atom_mask': (932, 37), 'all_atom_positions': (932, 37, 3), 'assembly_num_chains': (), 'entity_mask': (932,), 'num_templates': (), 'cluster_bias_mask': (512,), 'bert_mask': (512, 932), 'seq_mask': (932,), 'msa_mask': (512, 932)}
+I0821 15:14:45.847668 140012798003008 model.py:175] Output shape was {'distogram': {'bin_edges': (63,), 'logits': (932, 932, 64)}, 'experimentally_resolved': {'logits': (932, 37)}, 'masked_msa': {'logits': (508, 932, 22)}, 'num_recycles': (), 'predicted_aligned_error': (932, 932), 'predicted_lddt': {'logits': (932, 50)}, 'structure_module': {'final_atom_mask': (932, 37), 'final_atom_positions': (932, 37, 3)}, 'plddt': (932,), 'aligned_confidence_probs': (932, 932, 64), 'max_predicted_aligned_error': (), 'ptm': (), 'iptm': (), 'ranking_confidence': ()}
+I0821 15:14:45.850184 140012798003008 run_alphafold.py:203] Total JAX model model_3_multimer_v3_pred_1 on file predict time (includes compilation time, see --benchmark): 497.0s
+I0821 15:15:32.635820 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 192 (LYS) of chain 0>: ['OXT'], <Residue 663 (GLY) of chain 1>: ['OXT'], <Residue 931 (GLU) of chain 2>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:15:34.966365 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 15:15:37.012407 140012798003008 amber_minimize.py:69] Restraining 7411 / 14832 particles.
+I0821 15:16:09.900595 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:16:21.976661 140012798003008 amber_minimize.py:500] Iteration completed: Einit 21631872734.23 Efinal -7094.97 Time 20.06 s num residue violations 21 num residue exclusions 0 
+I0821 15:16:21.976967 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 15:16:24.505835 140012798003008 amber_minimize.py:69] Restraining 7233 / 14832 particles.
+I0821 15:16:40.810534 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:16:53.100344 140012798003008 amber_minimize.py:500] Iteration completed: Einit 38334.76 Efinal -12995.90 Time 4.49 s num residue violations 16 num residue exclusions 21 
+I0821 15:16:53.100787 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 15:16:55.689590 140012798003008 amber_minimize.py:69] Restraining 7233 / 14832 particles.
+I0821 15:17:11.714833 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:17:23.862110 140012798003008 amber_minimize.py:500] Iteration completed: Einit 24915.46 Efinal -14748.88 Time 4.18 s num residue violations 15 num residue exclusions 21 
+I0821 15:17:24.993599 140012798003008 run_alphafold.py:191] Running model model_4_multimer_v3_pred_0 on file
+I0821 15:17:24.993928 140012798003008 model.py:165] Running predict with shape(feat) = {'aatype': (932,), 'residue_index': (932,), 'seq_length': (), 'msa': (512, 932), 'num_alignments': (), 'template_aatype': (4, 932), 'template_all_atom_mask': (4, 932, 37), 'template_all_atom_positions': (4, 932, 37, 3), 'asym_id': (932,), 'sym_id': (932,), 'entity_id': (932,), 'deletion_matrix': (512, 932), 'deletion_mean': (932,), 'all_atom_mask': (932, 37), 'all_atom_positions': (932, 37, 3), 'assembly_num_chains': (), 'entity_mask': (932,), 'num_templates': (), 'cluster_bias_mask': (512,), 'bert_mask': (512, 932), 'seq_mask': (932,), 'msa_mask': (512, 932)}
+I0821 15:27:57.852342 140012798003008 model.py:175] Output shape was {'distogram': {'bin_edges': (63,), 'logits': (932, 932, 64)}, 'experimentally_resolved': {'logits': (932, 37)}, 'masked_msa': {'logits': (508, 932, 22)}, 'num_recycles': (), 'predicted_aligned_error': (932, 932), 'predicted_lddt': {'logits': (932, 50)}, 'structure_module': {'final_atom_mask': (932, 37), 'final_atom_positions': (932, 37, 3)}, 'plddt': (932,), 'aligned_confidence_probs': (932, 932, 64), 'max_predicted_aligned_error': (), 'ptm': (), 'iptm': (), 'ranking_confidence': ()}
+I0821 15:27:57.853575 140012798003008 run_alphafold.py:203] Total JAX model model_4_multimer_v3_pred_0 on file predict time (includes compilation time, see --benchmark): 632.9s
+I0821 15:28:45.409375 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 192 (LYS) of chain 0>: ['OXT'], <Residue 663 (GLY) of chain 1>: ['OXT'], <Residue 931 (GLU) of chain 2>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:28:47.123002 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 15:28:49.266115 140012798003008 amber_minimize.py:69] Restraining 7411 / 14832 particles.
+I0821 15:29:22.887766 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:29:35.976887 140012798003008 amber_minimize.py:500] Iteration completed: Einit 19097740971.32 Efinal -10229.12 Time 20.17 s num residue violations 0 num residue exclusions 0 
+I0821 15:29:36.424154 140012798003008 run_alphafold.py:191] Running model model_4_multimer_v3_pred_1 on file
+I0821 15:29:36.424407 140012798003008 model.py:165] Running predict with shape(feat) = {'aatype': (932,), 'residue_index': (932,), 'seq_length': (), 'msa': (512, 932), 'num_alignments': (), 'template_aatype': (4, 932), 'template_all_atom_mask': (4, 932, 37), 'template_all_atom_positions': (4, 932, 37, 3), 'asym_id': (932,), 'sym_id': (932,), 'entity_id': (932,), 'deletion_matrix': (512, 932), 'deletion_mean': (932,), 'all_atom_mask': (932, 37), 'all_atom_positions': (932, 37, 3), 'assembly_num_chains': (), 'entity_mask': (932,), 'num_templates': (), 'cluster_bias_mask': (512,), 'bert_mask': (512, 932), 'seq_mask': (932,), 'msa_mask': (512, 932)}
+I0821 15:37:52.629902 140012798003008 model.py:175] Output shape was {'distogram': {'bin_edges': (63,), 'logits': (932, 932, 64)}, 'experimentally_resolved': {'logits': (932, 37)}, 'masked_msa': {'logits': (508, 932, 22)}, 'num_recycles': (), 'predicted_aligned_error': (932, 932), 'predicted_lddt': {'logits': (932, 50)}, 'structure_module': {'final_atom_mask': (932, 37), 'final_atom_positions': (932, 37, 3)}, 'plddt': (932,), 'aligned_confidence_probs': (932, 932, 64), 'max_predicted_aligned_error': (), 'ptm': (), 'iptm': (), 'ranking_confidence': ()}
+I0821 15:37:52.631148 140012798003008 run_alphafold.py:203] Total JAX model model_4_multimer_v3_pred_1 on file predict time (includes compilation time, see --benchmark): 496.2s
+I0821 15:38:39.782229 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 192 (LYS) of chain 0>: ['OXT'], <Residue 663 (GLY) of chain 1>: ['OXT'], <Residue 931 (GLU) of chain 2>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:38:41.477508 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 15:38:43.526646 140012798003008 amber_minimize.py:69] Restraining 7411 / 14832 particles.
+I0821 15:39:16.991847 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:39:29.320349 140012798003008 amber_minimize.py:500] Iteration completed: Einit 13147665621.41 Efinal -10558.57 Time 20.55 s num residue violations 17 num residue exclusions 0 
+I0821 15:39:29.320779 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 15:39:31.414780 140012798003008 amber_minimize.py:69] Restraining 7284 / 14832 particles.
+I0821 15:39:47.663220 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:40:00.527228 140012798003008 amber_minimize.py:500] Iteration completed: Einit 40832.35 Efinal -16139.48 Time 3.86 s num residue violations 0 num residue exclusions 17 
+I0821 15:40:00.980425 140012798003008 run_alphafold.py:191] Running model model_5_multimer_v3_pred_0 on file
+I0821 15:40:00.980769 140012798003008 model.py:165] Running predict with shape(feat) = {'aatype': (932,), 'residue_index': (932,), 'seq_length': (), 'msa': (512, 932), 'num_alignments': (), 'template_aatype': (4, 932), 'template_all_atom_mask': (4, 932, 37), 'template_all_atom_positions': (4, 932, 37, 3), 'asym_id': (932,), 'sym_id': (932,), 'entity_id': (932,), 'deletion_matrix': (512, 932), 'deletion_mean': (932,), 'all_atom_mask': (932, 37), 'all_atom_positions': (932, 37, 3), 'assembly_num_chains': (), 'entity_mask': (932,), 'num_templates': (), 'cluster_bias_mask': (512,), 'bert_mask': (512, 932), 'seq_mask': (932,), 'msa_mask': (512, 932)}
+I0821 15:50:34.814813 140012798003008 model.py:175] Output shape was {'distogram': {'bin_edges': (63,), 'logits': (932, 932, 64)}, 'experimentally_resolved': {'logits': (932, 37)}, 'masked_msa': {'logits': (508, 932, 22)}, 'num_recycles': (), 'predicted_aligned_error': (932, 932), 'predicted_lddt': {'logits': (932, 50)}, 'structure_module': {'final_atom_mask': (932, 37), 'final_atom_positions': (932, 37, 3)}, 'plddt': (932,), 'aligned_confidence_probs': (932, 932, 64), 'max_predicted_aligned_error': (), 'ptm': (), 'iptm': (), 'ranking_confidence': ()}
+I0821 15:50:34.815939 140012798003008 run_alphafold.py:203] Total JAX model model_5_multimer_v3_pred_0 on file predict time (includes compilation time, see --benchmark): 633.8s
+I0821 15:51:21.968099 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 192 (LYS) of chain 0>: ['OXT'], <Residue 663 (GLY) of chain 1>: ['OXT'], <Residue 931 (GLU) of chain 2>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:51:23.661345 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 15:51:25.770435 140012798003008 amber_minimize.py:69] Restraining 7411 / 14832 particles.
+I0821 15:53:10.705884 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 15:53:23.375647 140012798003008 amber_minimize.py:500] Iteration completed: Einit 257557163679571.69 Efinal -10570.54 Time 92.38 s num residue violations 0 num residue exclusions 0 
+I0821 15:53:23.834839 140012798003008 run_alphafold.py:191] Running model model_5_multimer_v3_pred_1 on file
+I0821 15:53:23.835113 140012798003008 model.py:165] Running predict with shape(feat) = {'aatype': (932,), 'residue_index': (932,), 'seq_length': (), 'msa': (512, 932), 'num_alignments': (), 'template_aatype': (4, 932), 'template_all_atom_mask': (4, 932, 37), 'template_all_atom_positions': (4, 932, 37, 3), 'asym_id': (932,), 'sym_id': (932,), 'entity_id': (932,), 'deletion_matrix': (512, 932), 'deletion_mean': (932,), 'all_atom_mask': (932, 37), 'all_atom_positions': (932, 37, 3), 'assembly_num_chains': (), 'entity_mask': (932,), 'num_templates': (), 'cluster_bias_mask': (512,), 'bert_mask': (512, 932), 'seq_mask': (932,), 'msa_mask': (512, 932)}
+I0821 16:01:40.585770 140012798003008 model.py:175] Output shape was {'distogram': {'bin_edges': (63,), 'logits': (932, 932, 64)}, 'experimentally_resolved': {'logits': (932, 37)}, 'masked_msa': {'logits': (508, 932, 22)}, 'num_recycles': (), 'predicted_aligned_error': (932, 932), 'predicted_lddt': {'logits': (932, 50)}, 'structure_module': {'final_atom_mask': (932, 37), 'final_atom_positions': (932, 37, 3)}, 'plddt': (932,), 'aligned_confidence_probs': (932, 932, 64), 'max_predicted_aligned_error': (), 'ptm': (), 'iptm': (), 'ranking_confidence': ()}
+I0821 16:01:40.587013 140012798003008 run_alphafold.py:203] Total JAX model model_5_multimer_v3_pred_1 on file predict time (includes compilation time, see --benchmark): 496.8s
+I0821 16:02:27.468842 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {<Residue 192 (LYS) of chain 0>: ['OXT'], <Residue 663 (GLY) of chain 1>: ['OXT'], <Residue 931 (GLU) of chain 2>: ['OXT']}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 16:02:29.147003 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 16:02:31.692834 140012798003008 amber_minimize.py:69] Restraining 7411 / 14832 particles.
+I0821 16:02:56.753478 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 16:03:09.045674 140012798003008 amber_minimize.py:500] Iteration completed: Einit 311059273.42 Efinal -10437.80 Time 13.02 s num residue violations 7 num residue exclusions 0 
+I0821 16:03:09.045994 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 16:03:11.157344 140012798003008 amber_minimize.py:69] Restraining 7356 / 14832 particles.
+I0821 16:03:28.213058 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 16:03:41.155020 140012798003008 amber_minimize.py:500] Iteration completed: Einit 36529.49 Efinal -16123.86 Time 4.64 s num residue violations 2 num residue exclusions 7 
+I0821 16:03:41.155454 140012798003008 amber_minimize.py:408] Minimizing protein, attempt 1 of 100.
+I0821 16:03:43.230202 140012798003008 amber_minimize.py:69] Restraining 7356 / 14832 particles.
+I0821 16:03:58.955495 140012798003008 amber_minimize.py:178] alterations info: {'nonstandard_residues': [], 'removed_heterogens': set(), 'missing_residues': {}, 'missing_heavy_atoms': {}, 'missing_terminals': {}, 'Se_in_MET': [], 'removed_chains': {0: []}}
+I0821 16:04:11.224627 140012798003008 amber_minimize.py:500] Iteration completed: Einit 40537.85 Efinal -17776.35 Time 3.54 s num residue violations 2 num residue exclusions 7 
+I0821 16:04:11.677012 140012798003008 run_alphafold.py:277] Final timings for file: {'features': 548.6545495986938, 'process_features_model_1_multimer_v3_pred_0': 1.3828277587890625e-05, 'predict_and_compile_model_1_multimer_v3_pred_0': 636.9865546226501, 'relax_model_1_multimer_v3_pred_0': 170.96967697143555, 'process_features_model_1_multimer_v3_pred_1': 1.6450881958007812e-05, 'predict_and_compile_model_1_multimer_v3_pred_1': 496.36848616600037, 'relax_model_1_multimer_v3_pred_1': 452.1770420074463, 'process_features_model_2_multimer_v3_pred_0': 1.5974044799804688e-05, 'predict_and_compile_model_2_multimer_v3_pred_0': 631.3253910541534, 'relax_model_2_multimer_v3_pred_0': 157.60596442222595, 'process_features_model_2_multimer_v3_pred_1': 1.9073486328125e-05, 'predict_and_compile_model_2_multimer_v3_pred_1': 496.1845624446869, 'relax_model_2_multimer_v3_pred_1': 188.23029708862305, 'process_features_model_3_multimer_v3_pred_0': 7.867813110351562e-06, 'predict_and_compile_model_3_multimer_v3_pred_0': 632.0605804920197, 'relax_model_3_multimer_v3_pred_0': 154.11378860473633, 'process_features_model_3_multimer_v3_pred_1': 1.6450881958007812e-05, 'predict_and_compile_model_3_multimer_v3_pred_1': 496.9670932292938, 'relax_model_3_multimer_v3_pred_1': 143.14223527908325, 'process_features_model_4_multimer_v3_pred_0': 1.2636184692382812e-05, 'predict_and_compile_model_4_multimer_v3_pred_0': 632.8597741127014, 'relax_model_4_multimer_v3_pred_0': 82.41730904579163, 'process_features_model_4_multimer_v3_pred_1': 7.152557373046875e-06, 'predict_and_compile_model_4_multimer_v3_pred_1': 496.20683693885803, 'relax_model_4_multimer_v3_pred_1': 112.48680210113525, 'process_features_model_5_multimer_v3_pred_0': 2.2649765014648438e-05, 'predict_and_compile_model_5_multimer_v3_pred_0': 633.8353202342987, 'relax_model_5_multimer_v3_pred_0': 152.9533507823944, 'process_features_model_5_multimer_v3_pred_1': 8.58306884765625e-06, 'predict_and_compile_model_5_multimer_v3_pred_1': 496.75200629234314, 'relax_model_5_multimer_v3_pred_1': 135.16693782806396}
